@@ -22,7 +22,6 @@
             return data.minutes;
         }
 
-        // Fonction pour préparer les données pour le graphique
         async function prepareData() {
             const commits = await fetchCommits();
             const minutesData = {};
