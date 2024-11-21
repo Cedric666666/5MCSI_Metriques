@@ -3,52 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Graphique des Commits Minute par Minute</title>
+  <title>Page Commits Minute par Minute</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    /* Corps de la page */
     body {
       font-family: Arial, sans-serif;
-      background-color: #FFFFFF; /* Fond neutre (blanc) pour toute la page */
+      background-color: #FFFFFF;
       margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh; /* Hauteur de la page pleine */
+      height: 100vh;
       text-align: center;
     }
 
-    /* Conteneur du graphique */
     .chart-container {
-      width: 50%; /* Le graphique prend la moitié de l'écran */
+      width: auto;
       padding: 20px;
-      background-color: #FFFFFF; /* Fond blanc pour le conteneur */
-      border-radius: 10px; /* Coins arrondis */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre discrète */
+      background-color: #FFFFFF;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    /* Titre */
     h1 {
       margin-bottom: 20px;
-      color: #191970; /* Couleur bleue foncée pour le titre */
+      color: #191970; 
       font-size: 1.8em;
-      text-transform: uppercase; /* Texte en majuscule */
+      text-transform: uppercase;
     }
 
     /* Canvas (Graphique) */
     canvas {
-      width: 100% !important; /* Le graphique prend toute la largeur du conteneur */
-      height: 500px !important; /* La hauteur s'ajuste proportionnellement à la largeur */
-      border-radius: 8px; /* Coins arrondis pour un effet doux */
+      width: auto !important; 
+      height: 500px !important; 
+      border-radius: 8px; 
     }
   </style>
 </head>
 <body>
   <div class="chart-container">
-    <h1>Graphique des Commits Minute par Minute</h1>
+    <h1>Page Commits Minute par Minute</h1>
     <canvas id="commitChart"></canvas>
   </div>
 
@@ -142,7 +139,6 @@
       });
     }
 
-    // Appeler la fonction pour afficher le graphique
     displayChart();
   </script>
 </body>
