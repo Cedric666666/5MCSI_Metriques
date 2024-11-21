@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Histogramme des températures</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+  <body>
+    <h2>Histogramme des températures</h2>
+    <div id="chart_div"></div>
+    <script>
+      google.charts.load('current', { packages: ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var dataTable = new google.visualization.DataTable();
+        dataTable.addColumn('string', 'Date');
+        dataTable.addColumn('number', 'Température');
+        
+        fetch('/tawarano/')
+          .then(response => response.json())
+          .then(data => {
+            data.results.forEach(entry => {
+              var date = new Date(entry.Jour * 1000); // Convertir timestamp en date
+              dataTable.addRow([date.toLocaleDateString(), entry.temp]);
+            });
+
+            var options = {
+              title: 'Histogramme des températures',
+              hAxis: { title: 'Date' },
+              vAxis: { title: 'Température (°C)' },
+              legend: { position: 'none' }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            chart.draw(dataTable, options);
+          });
+      }
+    </script>
+  </body>
+</html>
