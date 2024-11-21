@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ma page de contact</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #191970;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #FFFFFF;
+      }
+
+      .contact-form-container {
+        background-color: #FFFFFF;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+        width: 100%;
+        max-width: 500px;
+        box-sizing: border-box;
+      }
+
+      h2 {
+        text-align: center;
+        color: #191970;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #000000;
+      }
+
+      .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #000000;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: #FFFFFF;
+        color: #000000;
+      }
+
+      .form-group textarea {
+        resize: vertical;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #FFD700;
+        border: none;
+        color: #191970;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .submit-btn:hover {
+        background-color: #FFC107;
+      }
+
+      .contact-form-container p {
+        text-align: center;
+        margin-top: 10px;
+        color: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contact-form-container">
+      <h2>Nous Contacter</h2>
+      <form method="POST" action="/contact/">
+        <div class="form-group">
+          <label for="first_name">Prénom</label>
+          <input type="text" id="first_name" name="first_name" required placeholder="Votre prénom">
+        </div>
+        <div class="form-group">
+          <label for="last_name">Nom</label>
+          <input type="text" id="last_name" name="last_name" required placeholder="Votre nom">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Votre message..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Envoyer</button>
+      </form>
+    </div>
+  </body>
+</html>
