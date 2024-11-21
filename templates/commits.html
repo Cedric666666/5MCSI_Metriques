@@ -9,8 +9,7 @@
         /* Corps de la page */
         body {
             font-family: Arial, sans-serif;
-            background-color: #191970; /* Fond de la page en bleu foncé */
-            color: #FFD700; /* Couleur du texte */
+            background-color: #FFFFFF; /* Fond neutre (blanc) pour toute la page */
             margin: 0;
             display: flex;
             justify-content: center;
@@ -24,8 +23,8 @@
             width: 50%; /* Le graphique prend la moitié de l'écran */
             padding: 20px;
             background-color: #FFFFFF; /* Fond blanc pour le conteneur */
-            border-radius: 15px; /* Coins arrondis pour un effet doux */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Ombre autour du conteneur pour effet flottant */
+            border-radius: 10px; /* Coins arrondis */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre discrète */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -34,27 +33,22 @@
         /* Titre */
         h1 {
             margin-bottom: 20px;
-            color: #FFD700; /* Couleur dorée pour le titre */
-            font-size: 2em;
-            text-transform: uppercase; /* Texte en majuscule pour un effet moderne */
+            color: #191970; /* Couleur bleue foncée pour le titre */
+            font-size: 1.8em;
+            text-transform: uppercase; /* Texte en majuscule */
         }
 
         /* Canvas (Graphique) */
         canvas {
             width: 100% !important; /* Le graphique prend toute la largeur du conteneur */
             height: auto !important; /* La hauteur s'ajuste proportionnellement à la largeur */
-            border-radius: 10px; /* Coins arrondis */
-        }
-
-        /* Design des axes du graphique */
-        .chartjs-render-monitor {
-            border-radius: 10px; /* Coins arrondis autour du graphique */
+            border-radius: 8px; /* Coins arrondis pour un effet doux */
         }
 
         /* Personnalisation de l'axe X et Y */
         .chartjs-tooltip {
-            background-color: #191970; /* Fond de la tooltip en bleu foncé */
-            color: #FFD700; /* Couleur du texte de la tooltip en doré */
+            background-color: #191970; /* Fond des tooltips */
+            color: #FFD700; /* Couleur dorée pour le texte */
         }
     </style>
 </head>
@@ -109,10 +103,10 @@
                     datasets: [{
                         label: 'Commits par Minute',
                         data: commitsPerMinute, // Nombre de commits par minute
-                        borderColor: '#FFD700', // Couleur de la ligne du graphique (doré)
+                        borderColor: '#191970', // Couleur bleue foncée pour la ligne
                         fill: false,
                         borderWidth: 2, // Épaisseur de la ligne
-                        pointBackgroundColor: '#FFD700', // Couleur des points de la ligne
+                        pointBackgroundColor: '#FFD700', // Couleur dorée pour les points
                         pointBorderColor: '#191970', // Bordure des points en bleu foncé
                     }]
                 },
@@ -124,20 +118,20 @@
                             title: {
                                 display: true,
                                 text: 'Minutes',
-                                color: '#FFD700', // Couleur des labels de l'axe X
+                                color: '#191970', // Couleur des labels de l'axe X
                             },
                             ticks: {
-                                color: '#FFD700', // Couleur des ticks (valeurs sur l'axe X)
+                                color: '#191970', // Couleur des ticks (valeurs sur l'axe X)
                             }
                         },
                         y: {
                             title: {
                                 display: true,
                                 text: 'Nombre de Commits',
-                                color: '#FFD700', // Couleur des labels de l'axe Y
+                                color: '#191970', // Couleur des labels de l'axe Y
                             },
                             ticks: {
-                                color: '#FFD700', // Couleur des ticks (valeurs sur l'axe Y)
+                                color: '#191970', // Couleur des ticks (valeurs sur l'axe Y)
                             }
                         }
                     },
