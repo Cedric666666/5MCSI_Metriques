@@ -4,10 +4,6 @@ from flask import json
 from datetime import datetime
 from urllib.request import urlopen
 import sqlite3
-import requests 
-import matplotlib.pyplot as plt
-from io import BytesIO  
-import base64 
 
 def fetch_commit_minutes():
     url = "https://api.github.com/repos/OpenRSI/5MCSI_Metriques/commits"
