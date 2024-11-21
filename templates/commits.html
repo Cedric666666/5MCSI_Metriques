@@ -3,30 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Commits Minute par Minute</title>
+  <title>Graphique des Commits Minute par Minute</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
+    /* Corps de la page */
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f9;
-      padding: 20px;
+      background-color: #FFFFFF; /* Fond neutre (blanc) pour toute la page */
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Hauteur de la page pleine */
       text-align: center;
     }
-    h1 {
-      color: #333;
+
+    /* Conteneur du graphique */
+    .chart-container {
+      width: 50%; /* Le graphique prend la moitié de l'écran */
+      padding: 20px;
+      background-color: #FFFFFF; /* Fond blanc pour le conteneur */
+      border-radius: 10px; /* Coins arrondis */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre discrète */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+
+    /* Titre */
+    h1 {
+      margin-bottom: 20px;
+      color: #191970; /* Couleur bleue foncée pour le titre */
+      font-size: 1.8em;
+      text-transform: uppercase; /* Texte en majuscule */
+    }
+
+    /* Canvas (Graphique) */
     canvas {
-      max-width: 600px;
-      margin: 20px auto;
+      width: 100% !important; /* Le graphique prend toute la largeur du conteneur */
+      height: 500px !important; /* La hauteur s'ajuste proportionnellement à la largeur */
+      border-radius: 8px; /* Coins arrondis pour un effet doux */
     }
   </style>
 </head>
 <body>
-  <h1>Graphique des Commits Minute par Minute</h1>
-  <canvas id="commitChart"></canvas>
+  <div class="chart-container">
+    <h1>Graphique des Commits Minute par Minute</h1>
+    <canvas id="commitChart"></canvas>
+  </div>
 
   <script>
-    const repoURL = "https://api.github.com/repos/Cedric666666/5MCSI_Metriques/commits";
+    const repoURL = "https://api.github.com/repos/kobasrb/5MCSI_Metriques/commits";
     const extractMinutesURL = "/extract-minutes"; // Route Flask
 
     // Fonction pour récupérer les données de l'API GitHub
@@ -79,11 +106,38 @@
           }],
         },
         options: {
+          responsive: true,
+          maintainAspectRatio: false,
           scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Minutes',
+                color: '#191970',
+              },
+              ticks: {
+                color: '#191970',
+              }
+            },
             y: {
+              title: {
+                display: true,
+                text: 'Nombre de Commits',
+                color: '#191970',
+              },
+              ticks: {
+                color: '#191970',
+              },
               beginAtZero: true,
             },
           },
+          plugins: {
+            tooltip: {
+              backgroundColor: '#191970',
+              titleColor: '#FFD700',
+              bodyColor: '#FFD700',
+            }
+          }
         },
       });
     }
